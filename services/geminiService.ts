@@ -1,64 +1,70 @@
-import { GoogleGenAI } from "@google/genai";
 import { PERSONAL_INFO, SKILLS, PROJECTS, EXPERIENCE, EDUCATION } from '../constants';
 
-// Construct the system context based on the portfolio data
-const SYSTEM_INSTRUCTION = `
-You are an AI Assistant for Joyonto Kumar Das's portfolio website. 
-Your goal is to answer visitor questions about Joyonto's skills, experience, and projects professionally yet creatively.
-Maintain a futuristic, helpful, and concise persona.
+const FALLBACK_MESSAGE = "I have informed Joyonto. Please use the contact form.";
 
-Here is the context about Joyonto:
-Name: ${PERSONAL_INFO.name}
-Role: ${PERSONAL_INFO.role}
-Bio: ${PERSONAL_INFO.bio}
-Contact: ${PERSONAL_INFO.email}
+const PRESET_QA: Array<{ keywords: string[]; response: string }> = [
+  {
+    keywords: ["hi", "hello", "hey"],
+    response: "Hello! I am Joyonto's assistant. Ask me about skills, projects, or contact info.",
+  },
+  {
+    keywords: ["name", "who are you", "owner"],
+    response: `This portfolio belongs to ${PERSONAL_INFO.name}.`,
+  },
+  {
+    keywords: ["role", "title", "position"],
+    response: `${PERSONAL_INFO.name} is a ${PERSONAL_INFO.role}.`,
+  },
+  {
+    keywords: ["email", "mail", "contact"],
+    response: `Email: ${PERSONAL_INFO.email}.`,
+  },
+  {
+    keywords: ["phone", "number"],
+    response: `Phone: ${PERSONAL_INFO.phone}.`,
+  },
+  {
+    keywords: ["location", "address", "where"],
+    response: `Location: ${PERSONAL_INFO.location}.`,
+  },
+  {
+    keywords: ["skills", "tech stack", "technologies"],
+    response: `Skills include ${SKILLS.map(category => category.category).join(", ")}.`,
+  },
+  {
+    keywords: ["projects", "work", "portfolio"],
+    response: `Projects include ${PROJECTS.map(project => project.title).join(", ")}.`,
+  },
+  {
+    keywords: ["experience", "intern"],
+    response: `Experience includes ${EXPERIENCE.map(item => item.title).join(", ")}.`,
+  },
+  {
+    keywords: ["education", "study", "degree"],
+    response: `Education includes ${EDUCATION.map(item => item.degree).join(", ")}.`,
+  },
+];
 
-Skills:
-${JSON.stringify(SKILLS)}
-
-Projects:
-${JSON.stringify(PROJECTS)}
-
-Experience:
-${JSON.stringify(EXPERIENCE)}
-
-Education:
-${JSON.stringify(EDUCATION)}
-
-If asked about something not in this data, politely say you don't have that information but suggest contacting him directly via the contact form.
-Keep answers relatively short (under 100 words) unless asked for details.
-`;
-
-let aiClient: GoogleGenAI | null = null;
-
-export const initGemini = () => {
-  const apiKey = process.env.API_KEY;
-  if (apiKey) {
-    aiClient = new GoogleGenAI({ apiKey });
+const findPresetAnswer = (message: string): string | null => {
+  const text = message.toLowerCase();
+  for (const item of PRESET_QA) {
+    if (item.keywords.some(keyword => text.includes(keyword))) {
+      return item.response;
+    }
   }
+  return null;
 };
 
 export const chatWithGemini = async (userMessage: string): Promise<string> => {
-  if (!aiClient) {
-    initGemini();
-    if (!aiClient) {
-      return "AI Assistant is offline (API Key missing). Please contact Joyonto directly.";
-    }
-  }
-
   try {
-    const model = aiClient.models;
-    const response = await model.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: userMessage,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-      }
-    });
+    const presetAnswer = findPresetAnswer(userMessage);
+    if (presetAnswer) {
+      return presetAnswer;
+    }
 
-    return response.text || "I processed that, but couldn't generate a text response.";
+    return FALLBACK_MESSAGE;
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "System malfunction. Unable to process request at this time.";
+    return FALLBACK_MESSAGE;
   }
 };

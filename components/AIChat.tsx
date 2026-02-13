@@ -65,12 +65,12 @@ const AIChat: React.FC = () => {
             className="fixed bottom-6 right-6 w-[350px] md:w-[400px] h-[500px] glass-panel rounded-2xl flex flex-col z-50 overflow-hidden border border-neon-blue/30 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/10 bg-black/40 flex justify-between items-center">
+            <div className="p-4 border-b border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/40 flex justify-between items-center">
               <div className="flex items-center gap-2 text-neon-blue">
                 <Bot size={20} />
-                <span className="font-display font-bold">Joyonto AI</span>
+                <span className="font-display font-bold">Assistant AI </span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
+              <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white">
                 <X size={20} />
               </button>
             </div>
@@ -79,16 +79,16 @@ const AIChat: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-lg text-sm ${msg.role === 'user' ? 'bg-neon-blue/20 text-white rounded-br-none border border-neon-blue/20' : 'bg-white/10 text-gray-200 rounded-bl-none border border-white/5'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-lg text-sm ${msg.role === 'user' ? 'bg-neon-blue/20 text-slate-900 dark:text-white rounded-br-none border border-neon-blue/20' : 'bg-black/5 dark:bg-white/10 text-slate-800 dark:text-gray-200 rounded-bl-none border border-black/5 dark:border-white/5'}`}>
                     {msg.content}
                   </div>
                 </div>
               ))}
               {isLoading && (
                  <div className="flex justify-start">
-                    <div className="bg-white/10 p-3 rounded-lg rounded-bl-none flex items-center gap-2">
+                    <div className="bg-black/5 dark:bg-white/10 p-3 rounded-lg rounded-bl-none flex items-center gap-2">
                         <Loader size={16} className="animate-spin text-neon-blue" />
-                        <span className="text-xs text-gray-400">Processing...</span>
+                        <span className="text-xs text-slate-600 dark:text-gray-400">Processing...</span>
                     </div>
                  </div>
               )}
@@ -96,7 +96,7 @@ const AIChat: React.FC = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 bg-black/40 border-t border-white/10">
+            <div className="p-4 bg-white/70 dark:bg-black/40 border-t border-black/10 dark:border-white/10">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -104,7 +104,7 @@ const AIChat: React.FC = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyPress}
                   placeholder="Ask about Joyonto..."
-                  className="flex-1 bg-black/50 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-neon-blue"
+                  className="flex-1 bg-white dark:bg-black/50 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-neon-blue"
                   disabled={isLoading}
                 />
                 <button 
@@ -115,8 +115,8 @@ const AIChat: React.FC = () => {
                   <Send size={18} />
                 </button>
               </div>
-              <div className="text-[10px] text-gray-600 mt-2 text-center">
-                Powered by Gemini 2.5 Flash
+              <div className="text-[10px] text-gray-600 dark:text-gray-400 mt-2 text-center">
+                Powered by Google Gemini API
               </div>
             </div>
           </motion.div>
