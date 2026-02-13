@@ -236,7 +236,7 @@ const Hero: React.FC = () => {
               <a href={`mailto:${PERSONAL_INFO.email}`} className="px-6 py-2.5 bg-neon-blue text-black font-bold text-sm rounded hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,243,255,0.5)] flex items-center gap-2">
                 Hire Me <Mail size={16} />
               </a>
-              <a href="../document/Joyonto_Resume.pdf" className="px-6 py-2.5 bg-transparent border border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white font-bold text-sm rounded hover:border-black dark:hover:border-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 flex items-center gap-2">
+              <a href={`${import.meta.env.BASE_URL}document/Joyonto_Resume.pdf`} className="px-6 py-2.5 bg-transparent border border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white font-bold text-sm rounded hover:border-black dark:hover:border-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 flex items-center gap-2">
                 <Download size={16} /> Resume
               </a>
             </motion.div>
