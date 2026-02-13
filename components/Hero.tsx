@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
               {/* Main Image Container */}
               <div className="absolute inset-[2px] bg-white dark:bg-dark-bg rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 z-10">
                  <img 
-                    src="../images/joyonto.jpg" 
+                    src="/images/joyonto.jpg" 
                     alt="Joyonto" 
                     className="w-full h-full object-cover opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                  />
