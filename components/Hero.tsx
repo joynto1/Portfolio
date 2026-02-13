@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
               {/* Main Image Container */}
               <div className="absolute inset-[2px] bg-white dark:bg-dark-bg rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 z-10">
                  <img 
-                    src="https://picsum.photos/400/400?random=10" 
+                    src="../images/joyonto.jpg" 
                     alt="Joyonto" 
                     className="w-full h-full object-cover opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                  />
@@ -236,7 +236,7 @@ const Hero: React.FC = () => {
               <a href={`mailto:${PERSONAL_INFO.email}`} className="px-6 py-2.5 bg-neon-blue text-black font-bold text-sm rounded hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,243,255,0.5)] flex items-center gap-2">
                 Hire Me <Mail size={16} />
               </a>
-              <a href="#" className="px-6 py-2.5 bg-transparent border border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white font-bold text-sm rounded hover:border-black dark:hover:border-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 flex items-center gap-2">
+              <a href="../document/Joyonto_Resume.pdf" className="px-6 py-2.5 bg-transparent border border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white font-bold text-sm rounded hover:border-black dark:hover:border-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 flex items-center gap-2">
                 <Download size={16} /> Resume
               </a>
             </motion.div>

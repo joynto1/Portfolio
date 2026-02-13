@@ -39,9 +39,9 @@ const Projects: React.FC = () => {
                 />
                 
                 <div className="absolute top-2 right-2 z-20 flex gap-2">
-                   <span className="px-2 py-1 text-[10px] font-mono font-bold bg-white/90 dark:bg-black/70 text-black dark:text-white rounded border border-black/10 dark:border-white/20 backdrop-blur-sm">
+                   {/* <span className="px-2 py-1 text-[10px] font-mono font-bold bg-white/90 dark:bg-black/70 text-black dark:text-white rounded border border-black/10 dark:border-white/20 backdrop-blur-sm">
                       {project.role}
-                   </span>
+                   </span> */}
                 </div>
               </div>
 

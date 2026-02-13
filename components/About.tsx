@@ -36,7 +36,7 @@ const About: React.FC = () => {
                <div className="absolute inset-0 border-2 border-neon-blue/50 rounded-2xl transform -rotate-6"></div>
                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(188,19,254,0.3)]">
                   <img 
-                    src="https://picsum.photos/600/600?random=20" 
+                    src="./images/about.jpg" 
                     alt="Joyonto Kumar Das" 
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                   />

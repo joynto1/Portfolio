@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     role: "Frontend Developer",
     demoUrl: "https://healpoint.netlify.app/",
     sourceUrl: "https://github.com/joynto1/doc-app",
-    image: "https://picsum.photos/600/400?random=1"
+    image: "../images/healpoint.jpeg"
   },
   {
     id: "2",
@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
     role: "Frontend Developer",
     demoUrl: "https://dhaka-local-bus-info.netlify.app/",
     sourceUrl: "https://github.com/joynto1/dhaka_local_bus",
-    image: "https://picsum.photos/600/400?random=2"
+    image: "../images/dhaka_local_bus.jpeg"
   },
   {
     id: "3",
@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     role: "Frontend Developer",
     demoUrl: "https://joynto1.github.io/Convention-center/",
     sourceUrl: "https://github.com/joynto1/Convention-center",
-    image: "https://picsum.photos/600/400?random=3"
+    image: "../images/convention.png"
   }
 ];
 
