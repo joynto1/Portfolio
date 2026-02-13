@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, Loader } from 'lucide-react';
+import { X, Send, Bot, Loader } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { chatWithGemini } from '../services/geminiService';
 

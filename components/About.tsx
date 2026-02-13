@@ -1,5 +1,4 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../constants';
 import { motion } from 'framer-motion';
 
 const About: React.FC = () => {

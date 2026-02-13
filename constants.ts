@@ -1,5 +1,5 @@
 import { Project, SkillCategory, Experience, Education, Certificate, Service } from './types';
-import { Code, Server, Layout, Database, Terminal, Cpu } from 'lucide-react';
+import { Server, Terminal, Layout } from 'lucide-react';
 
 export const PERSONAL_INFO = {
   name: "Joyonto Kumar Das",

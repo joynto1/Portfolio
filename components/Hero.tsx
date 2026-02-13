@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PERSONAL_INFO } from '../constants';
-import { ArrowDown, Github, Linkedin, Download, Terminal, Facebook, Instagram, Mail } from 'lucide-react';
+import { ArrowDown, Download, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ROLES = [

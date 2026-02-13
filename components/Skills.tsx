@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SKILLS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Terminal, Brain, Cpu, Server, Layout } from 'lucide-react';
+import { Code, Terminal, Brain, Cpu } from 'lucide-react';
 
 const Skills: React.FC = () => {
   const [activeTab, setActiveTab] = useState(SKILLS[0].category);
